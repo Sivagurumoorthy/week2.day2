@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class EditLead {
 
-	public static void main(String[] args) throws InterruptedException {
+public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver = new ChromeDriver();
@@ -27,9 +27,8 @@ public class EditLead {
 	  driver.findElement(By.xpath("(//input[@name='firstName'])[3]")).sendKeys("SIVA GURUMOORTHY");
 	   driver.findElement(By.xpath("//button[text()='Find Leads']")).click();
 	   
-       Thread.sleep(5000);
+       Thread.sleep(500);
     driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-firstName']/a")).click();
-    
     System.out.println(driver.getTitle()); 
     driver.findElement(By.xpath("//a[text()='Edit']")).click();
     WebElement Companyname = driver.findElement(By.xpath("//input[@id='updateLeadForm_companyName'][@name='companyName']"));

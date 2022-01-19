@@ -11,29 +11,26 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public abstract class DuplicateLead {
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("http://leaftaps.com/opentaps");
 		driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	
-	
-		WebElement username = driver.findElement(By.id("username"));
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	WebElement username = driver.findElement(By.id("username"));
 		username.sendKeys("DemoSalesManager");
 		driver.findElement(By.id("password")).sendKeys("crmsfa");
 		driver.findElement(By.className("decorativeSubmit")).click();
 		driver.findElement(By.linkText("CRM/SFA")).click();
 		driver.findElement(By.linkText("Leads")).click();
 		driver.findElement(By.linkText("Find Leads")).click();
-
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[text()='Email']")).click();
 		driver.findElement(By.xpath("//input[@name='emailAddress'][@type='text']")).sendKeys("gurusmart123@gmail.com");
 		driver.findElement(By.xpath("//button[text()='Find Leads']")).click();	
-		Thread.sleep(5000);
-		
-		String CaptureFirstElement = driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-firstName']")).getText();
+	     Thread.sleep(2000);
+String CaptureFirstElement = driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-firstName']/a")).getText();
 		System.out.println(CaptureFirstElement);
+		
 		driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-firstName']/a")).click();
 		driver.findElement(By.linkText("Duplicate Lead")).click();
 		System.out.println(driver.getTitle());
@@ -47,12 +44,5 @@ public abstract class DuplicateLead {
 		else {
 			System.out.println("duplicated lead name is not same as captured name");
 		}
-	
-		Thread.sleep(5000);
-		driver.close();
-		
-		
-		
-	}
-
-}
+	Thread.sleep(50);
+		driver.close();}}

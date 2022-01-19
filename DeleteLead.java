@@ -11,13 +11,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DeleteLead {
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("http://leaftaps.com/opentaps");
 		driver.manage().window().maximize();
-	
-		WebElement username = driver.findElement(By.id("username"));
+        WebElement username = driver.findElement(By.id("username"));
 		username.sendKeys("DemoSalesManager");
 		driver.findElement(By.id("password")).sendKeys("crmsfa");
 		driver.findElement(By.className("decorativeSubmit")).click();
@@ -30,10 +28,8 @@ public class DeleteLead {
         Thread.sleep(5000);
     String Captureid = driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).getText();
       System.out.println(Captureid);
-      
-      driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).click();
-  	
-	  driver.findElement(By.xpath("//a[text()='Delete']")).click();
+        driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).click();
+  	 driver.findElement(By.xpath("//a[text()='Delete']")).click();
 driver.findElement(By.xpath("//a[text()='Find Leads']")).click();
 		driver.findElement(By.xpath("//input[@name='id']")).sendKeys(Captureid);
 		
